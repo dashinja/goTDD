@@ -35,9 +35,17 @@ func SumAll(slices [][]int) []int{
 // SumAllAlt takes varying numbers of slices, returning a new slice containing the totals for each slice passed in via a different implementation
 
 func SumAllAlt(slices ...[]int) []int{
-	var result = make([]int, len(slices))
-	for i, v := range slices {
-		result[i] = SumAlt(v)
+	var result = make([]int, 0)
+	for _, v := range slices {
+		result = append(result, SumAlt(v))
 	}
 	return result
+}
+
+func SumAllTails(numbersToSum...[]int) []int {
+	var sum = make([]int, 0)
+	for _,numbers := range numbersToSum {
+		sum = append(sum, SumAlt(numbers[1:]))
+	}
+	return sum
 }

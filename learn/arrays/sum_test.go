@@ -53,7 +53,7 @@ func TestSumAllAlt(t *testing.T) {
 		sliceThree := []int{10, 11, 13}
 
 		expected := []int{5, 24, 34}
-		output := SumAll([][]int{sliceOne, sliceTwo, sliceThree})
+		output := SumAllAlt(sliceOne, sliceTwo, sliceThree)
 
 		// fmt.Println()
 		// fmt.Printf("SumAllAlt: %v", output)
@@ -66,8 +66,23 @@ func TestSumAllAlt(t *testing.T) {
 
 	})
 }
+func TestSumAllTails(t *testing.T) {
+	t.Run("SumAll returns new slice containing totals for each slice passed in", func(t *testing.T) {
+		sliceOne := []int{1, 2, 2}
+		sliceTwo := []int{4, 6, 8, 6}
+		sliceThree := []int{10, 11, 13}
 
+		expected := []int{4, 20, 24}
+		output := SumAllTails(sliceOne, sliceTwo, sliceThree)
 
+		// fmt.Println()
+		// fmt.Printf("SumAll: %v", output)
+
+		if !reflect.DeepEqual(expected, output) {
+			t.Errorf("expected: %v, output: %v", expected, output)
+		}
+	})
+}
 
 func ExampleSumAll() {
 	sliceOne := []int{1, 2, 2}
@@ -78,4 +93,14 @@ func ExampleSumAll() {
 	fmt.Println()
 	fmt.Println(output)
 	// Output: [5 24 34]
+}
+
+func BenchmarkSumAllTails(b *testing.B) {
+	sliceOne := []int{1, 2, 2}
+	sliceTwo := []int{4, 6, 8, 6}
+	sliceThree := []int{10, 11, 13}
+
+	for i := 0; i < b.N; i++ {
+		SumAll([][]int{sliceOne, sliceTwo, sliceThree})
+	}
 }
