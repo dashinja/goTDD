@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"./integers/"
 )
 
 const englishHelloPrefix = "Hello, "
@@ -36,4 +37,7 @@ func greetingPrefix(language string) (prefix string) {
 
 func main() {
 	fmt.Println(Hello("world", ""))
+
+	fmt.Printf("Answer: %d", integers.Add(2, 2))
+	
 }
