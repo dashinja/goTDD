@@ -44,7 +44,7 @@ func SumAllAlt(slices ...[]int) []int{
 	return result
 }
 
-func SumAllTails(numbersToSum...[]int) ([]int, error) {
+func SumAllTails(numbersToSum...[]int) (result []int, err error) {
 
 	var sum = make([]int, 0)
 	for _,numbers := range numbersToSum {
