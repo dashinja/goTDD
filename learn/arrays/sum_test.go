@@ -1,6 +1,7 @@
 package arrays
 
 import (
+	"errors"
 	"fmt"
 	"reflect"
 	"testing"
@@ -38,9 +39,6 @@ func TestSumAll(t *testing.T) {
 		expected := []int{5, 24, 34}
 		output := SumAll([][]int{sliceOne, sliceTwo, sliceThree})
 
-		// fmt.Println()
-		// fmt.Printf("SumAll: %v", output)
-
 		if !reflect.DeepEqual(expected, output) {
 			t.Errorf("expected: %v, output: %v", expected, output)
 		}
@@ -54,9 +52,6 @@ func TestSumAllAlt(t *testing.T) {
 
 		expected := []int{5, 24, 34}
 		output := SumAllAlt(sliceOne, sliceTwo, sliceThree)
-
-		// fmt.Println()
-		// fmt.Printf("SumAllAlt: %v", output)
 
 		if !reflect.DeepEqual(expected, output) {
 			t.Errorf("expected: %v, output: %v", expected, output)
@@ -73,13 +68,26 @@ func TestSumAllTails(t *testing.T) {
 		sliceThree := []int{10, 11, 13}
 
 		expected := []int{4, 20, 24}
-		output := SumAllTails(sliceOne, sliceTwo, sliceThree)
-
-		// fmt.Println()
-		// fmt.Printf("SumAll: %v", output)
+		output, _ := SumAllTails(sliceOne, sliceTwo, sliceThree)
 
 		if !reflect.DeepEqual(expected, output) {
 			t.Errorf("expected: %v, output: %v", expected, output)
+		}
+	})
+
+	t.Run("Passing an empty slice results in instructional error", func(t *testing.T) {
+		expected := errors.New("must not pass an empty slice")
+		_, err := SumAllTails([]int{})
+
+		// if !reflect.DeepEqual( expected, err) {
+		// 	t.Errorf("expected error output: %q\n actual error output: %q\n", expected, err)
+		// }
+
+		// if !errors.Is(expected, err) {
+		// 	t.Errorf("expected error output: %q\n actual error output: %q\n", expected, err)
+		// }
+		if expected.Error() != err.Error() {
+			t.Errorf("expected error output: %q\n actual error output: %q\n", expected, err)
 		}
 	})
 }

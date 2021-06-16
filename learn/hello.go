@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"./integers/"
+
+	"github.com/dashinja/learn-go-with-tests/learn/integers"
 )
 
 const englishHelloPrefix = "Hello, "

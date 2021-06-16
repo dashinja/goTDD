@@ -1,5 +1,7 @@
 package arrays
 
+import "errors"
+
 // Sum sums the passed array in a for range loop
 func Sum(array [6]int) int {
 	result := 0
@@ -42,10 +44,14 @@ func SumAllAlt(slices ...[]int) []int{
 	return result
 }
 
-func SumAllTails(numbersToSum...[]int) []int {
+func SumAllTails(numbersToSum...[]int) ([]int, error) {
+
 	var sum = make([]int, 0)
 	for _,numbers := range numbersToSum {
+		if len(numbers) == 0 {
+			return []int{-1}, errors.New("must not pass an empty slice")
+		}
 		sum = append(sum, SumAlt(numbers[1:]))
 	}
-	return sum
+	return sum, nil
 }
