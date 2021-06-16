@@ -76,16 +76,10 @@ func TestSumAllTails(t *testing.T) {
 	})
 
 	t.Run("Passing an empty slice results in instructional error", func(t *testing.T) {
+
 		expected := errors.New("must not pass an empty slice")
 		_, err := SumAllTails([]int{})
 
-		// if !reflect.DeepEqual( expected, err) {
-		// 	t.Errorf("expected error output: %q\n actual error output: %q\n", expected, err)
-		// }
-
-		// if !errors.Is(expected, err) {
-		// 	t.Errorf("expected error output: %q\n actual error output: %q\n", expected, err)
-		// }
 		if expected.Error() != err.Error() {
 			t.Errorf("expected error output: %q\n actual error output: %q\n", expected, err)
 		}
