@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dashinja/learn-go-with-tests/learn/strings"
+	"github.com/dashinja/learn-go-with-tests/strings"
 )
 
 func TestReplaceCondition(t *testing.T) {

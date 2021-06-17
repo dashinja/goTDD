@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/dashinja/learn-go-with-tests/learn/arrays"
+	"github.com/dashinja/learn-go-with-tests/arrays"
 )
 
 func TestSum(t *testing.T) {

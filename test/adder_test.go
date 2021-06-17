@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dashinja/learn-go-with-tests/learn/integers"
+	"github.com/dashinja/learn-go-with-tests/integers"
 )
 func ExampleAdd() {
 	sum := integers.Add(1, 5)

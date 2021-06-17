@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dashinja/learn-go-with-tests/learn/iteration"
+	"github.com/dashinja/learn-go-with-tests/iteration"
 )
 
 func TestRepeat(t *testing.T) {

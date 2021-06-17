@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 
-	"github.com/dashinja/learn-go-with-tests/learn/starter"
+	"github.com/dashinja/learn-go-with-tests/starter"
 )
 
 func TestHello(t *testing.T) {
